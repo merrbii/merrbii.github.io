@@ -1,0 +1,268 @@
+:root{
+  --bg-1:#fffdf8;
+  --bg-2:#f6f0e6;
+  --bg-3:#e8ddd0;
+  --text:#241d18;
+  --text-soft:#4b4036;
+  --shadow:0 20px 60px rgba(0,0,0,.10);
+  --container:1180px;
+  --accent:#5a4736;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Inter",system-ui,sans-serif;
+  color:var(--text);
+  background:linear-gradient(135deg,var(--bg-1),var(--bg-2) 52%,var(--bg-3));
+  min-height:100vh
+}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+main{min-height:100vh}
+.container{width:min(var(--container),calc(100% - 2rem));margin:0 auto}
+
+/* Landing page */
+.home-shell{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.home-shell::before,.home-shell::after{
+  content:"";position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;pointer-events:none
+}
+.home-shell::before{width:520px;height:520px;left:-80px;bottom:-120px;background:#fff8ef}
+.home-shell::after{width:440px;height:440px;right:-60px;bottom:-70px;background:#e5d2bf}
+.bg-blur{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255,255,255,.30), transparent 16%),
+    radial-gradient(circle at 52% 24%, rgba(230,214,192,.18), transparent 18%),
+    radial-gradient(circle at 70% 70%, rgba(190,168,146,.10), transparent 22%),
+    linear-gradient(120deg, rgba(255,255,255,.08), rgba(0,0,0,.03));
+  filter:blur(18px);
+  transform:scale(1.08)
+}
+.home-grid{
+  position:relative;z-index:2;min-height:100vh;
+  display:grid;grid-template-columns:1.05fr .95fr;
+  align-items:center;gap:3rem;padding:2rem 0
+}
+.left-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem}
+.portrait-wrap{
+  width:min(100%,430px);aspect-ratio:1/1;border-radius:50%;
+  overflow:hidden;box-shadow:var(--shadow);border:2px solid rgba(255,255,255,.95)
+}
+.portrait-wrap img{width:100%;height:100%;object-fit:cover}
+.quick-links{display:flex;flex-wrap:wrap;gap:1rem;justify-content:center}
+.quick-links a{
+  width:58px;height:58px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.98);
+  display:grid;place-items:center;
+  background:rgba(255,250,243,.76);
+  transition:transform .18s ease,background .18s ease, box-shadow .18s ease;
+  box-shadow:0 8px 22px rgba(0,0,0,.08);
+  overflow:hidden
+}
+.quick-links a:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.98);
+  box-shadow:0 12px 28px rgba(0,0,0,.12)
+}
+.quick-links a img{
+  width:28px;height:28px;object-fit:contain;display:block
+}
+.right-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.site-title{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(2.8rem,5vw,4.2rem);
+  line-height:1;margin:0;text-align:center
+}
+.site-subtitle{
+  margin:0 0 1.6rem;
+  text-transform:uppercase;letter-spacing:.16em;
+  font-size:.9rem;color:var(--text-soft);text-align:center
+}
+.action-list{width:min(100%,360px);display:flex;flex-direction:column;gap:1.1rem}
+.action-list a{
+  display:flex;align-items:center;justify-content:center;min-height:62px;
+  border:2px solid rgba(255,255,255,.98);border-radius:8px;
+  background:rgba(255,249,241,.82);color:var(--text);
+  font-size:1.05rem;letter-spacing:.12em;text-transform:uppercase;
+  transition:transform .18s ease, background .18s ease, box-shadow .18s ease;
+  box-shadow:0 8px 22px rgba(0,0,0,.08)
+}
+.action-list a:hover{
+  transform:translateY(-2px);
+  background:rgba(255,255,255,.98);
+  box-shadow:0 12px 28px rgba(0,0,0,.12)
+}
+
+/* Inner pages */
+/* .page-body{
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.22), transparent 18%),
+    linear-gradient(135deg,var(--bg-1),var(--bg-2) 54%,var(--bg-3))
+} */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,248,239,.68);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(0,0,0,.05)
+}
+.topbar-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  gap:1rem;padding:.95rem 0
+}
+.brand{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:1.75rem;color:var(--text)
+}
+.nav{display:flex;flex-wrap:wrap;gap:.8rem 1rem}
+.nav a{
+  color:var(--text);font-size:.95rem;padding:.2rem 0;
+  border-bottom:1px solid transparent;
+  text-transform:uppercase;
+  letter-spacing:0.08em;
+  font-weight:600
+}
+.nav a:hover,.nav a.active{
+  color:#1a1410;
+  border-color:rgba(36,29,24,.24)
+}
+.page-section{padding:5.5rem 0 4.5rem}
+.page-card{
+  background:rgba(255,251,245,.82);
+  border:1px solid rgba(255,255,255,.92);
+  border-radius:26px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+  padding:2rem
+}
+.page-label{
+  display:inline-block;font-size:.78rem;text-transform:uppercase;
+  letter-spacing:.14em;color:var(--accent);
+  border:1px solid rgba(90,71,54,.10);border-radius:999px;
+  padding:.35rem .8rem;background:rgba(255,255,255,.92)
+}
+.page-title{
+  font-family:"Instrument Serif",Georgia,serif;
+  font-size:clamp(2.1rem,4vw,3.4rem);
+  line-height:1.04;margin:.9rem 0 1rem
+}
+.page-intro{max-width:58rem;color:var(--text-soft);font-size:1.06rem;line-height:1.8}
+.text-grid,.cards-grid,.gallery{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1.7rem
+}
+.text-block,.small-card,.gallery figure,.contact-box{
+  background:rgba(255,252,247,.94);
+  border:1px solid rgba(0,0,0,.04);
+  border-radius:20px;padding:1.2rem
+}
+.text-block h3,.small-card h3{margin:0 0 .6rem;font-size:1.05rem}
+.text-block p,.small-card p,.pub-item p,.contact-box p,.gallery figcaption{
+  color:var(--text-soft);line-height:1.72
+}
+.gallery figure{padding:0;overflow:hidden}
+.gallery img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.gallery figcaption{padding:1rem;font-size:.95rem}
+.pub-list{display:flex;flex-direction:column;gap:.95rem;margin-top:1.7rem}
+.pub-item{
+  display:grid;grid-template-columns:82px 1fr;gap:1rem;
+  padding:1rem 0;border-bottom:1px solid rgba(0,0,0,.05)
+}
+.pub-item:last-child{border-bottom:none}
+.pub-year{
+  display:inline-flex;align-items:center;justify-content:center;min-height:42px;
+  border:1px solid rgba(90,71,54,.10);border-radius:999px;
+  color:var(--text);background:rgba(255,255,255,.94);font-weight:700
+}
+.pub-item a,.contact-box a{border-bottom:1px solid rgba(90,71,54,.16)}
+.footer{padding:1.4rem 0 2rem;color:var(--text-soft);font-size:.92rem}
+
+@media (max-width:900px){
+  .home-grid,.text-grid,.cards-grid,.gallery{grid-template-columns:1fr}
+  .home-grid{padding:3rem 0}
+}
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .container{width:min(var(--container),calc(100% - 1.2rem))}
+  .topbar-inner{flex-direction:column;align-items:flex-start}
+  .right-col{width:100%}
+  .action-list{width:100%}
+  .site-title{font-size:clamp(2.3rem,10vw,3rem)}
+  .page-card{padding:1.2rem;border-radius:22px}
+  .pub-item{grid-template-columns:1fr;gap:.7rem}
+  .pub-year{width:fit-content;padding:0 .9rem}
+  .quick-links a img{width:24px;height:24px}
+}
+
+.page-title,
+.text-block h3,
+.small-card h3,
+.brand {
+  color: #241d18;
+}
+
+.page-label {
+  color: #5a4736;
+  background: rgba(255,255,255,.95);
+}
+
+.page-intro,
+.text-block p,
+.small-card p,
+.pub-item p,
+.contact-box p,
+.gallery figcaption {
+  color: #4b4036;
+}
+
+.page-card a,
+.pub-item a,
+.contact-box a {
+  color: #5a4736;
+}
+
+.page-card a:hover,
+.pub-item a:hover,
+.contact-box a:hover {
+  color: #2f241c;
+}
+
+.action-list a,
+.quick-links a,
+.site-title {
+  color: #241d18;
+}
+
+.site-subtitle {
+  color: #58493d;
+}
+
+.quick-links a {
+  border-color: rgba(255,255,255,.98);
+}
+
+.text-block,
+.small-card,
+.gallery figure,
+.contact-box {
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.home-link {
+  color: #241d18;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+/* .page-body{
+  background:
+    linear-gradient(rgba(255,255,255,.1), rgba(255,255,255,.1)),
+    url("assets/images/background.jpg") center center / cover no-repeat fixed;
+} */
+
+.home-shell,
+.page-body{
+  background:
+    linear-gradient(rgba(255,250,244,.0), rgba(255,250,244,.0)),
+    url("assets/images/background.jpg") center center / cover no-repeat fixed;
+}
